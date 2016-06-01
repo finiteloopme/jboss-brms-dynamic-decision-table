@@ -18,7 +18,17 @@ package demo.finiteloop.me.model;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +36,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.StatelessKieSession;
 
@@ -44,8 +55,10 @@ public class DecisionTableTest {
     // TODO: use external decision table.
     // URL to use: https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls
     @BeforeClass
-    public static void setup() {
+    public static void setup() throws URISyntaxException, IOException {
+    	URL uriExtDecisionTable = new URL("https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls"); 	
         KieServices kieServices = KieServices.Factory.get();
+        kieServices.getResources().newInputStreamResource(uriExtDecisionTable.openConnection().getInputStream());
         KieContainer kContainer = kieServices.getKieClasspathContainer();
         kSession = kContainer.newStatelessKieSession();
     }
