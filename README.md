@@ -41,4 +41,8 @@ Requirements for the execution environment:
     mvn clean package
     ```
 
+## Further research
+This project re-uses artecacts available as part of two below projects.  Its highly recommended that user looks into these rules projects as well.
+1. https://github.com/jboss-developer/jboss-brms-repository
+2. https://github.com/jboss-developer/jboss-brms-quickstarts
   [23af6cd1]: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BRMS/6.3/html-single/Development_Guide/index.html#sect-Using_Decision_Tables_in_Spreadsheets "Decision Tables"
