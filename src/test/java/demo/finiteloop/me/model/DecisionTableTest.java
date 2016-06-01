@@ -46,7 +46,7 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.StatelessKieSession;
 
 /**
- * @author rafaelbenevides
+ * @author Kunal Limaye
  * 
  */
 public class DecisionTableTest {
@@ -57,18 +57,15 @@ public class DecisionTableTest {
     private static final String GENDER_MALE = "MALE";
     private static final String GENDER_FEMALE = "FEMALE";
 
-    // TODO: use external decision table.
-    // URL to use: https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls
     @BeforeClass
     public static void setup() throws URISyntaxException, IOException {
-    	URL uriExtDecisionTable = new URL("https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls"); 	
+    	URL urlExtDecisionTable = new URL("https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls"); 	
         KieServices kieServices = KieServices.Factory.get();
         KieFileSystem kfs = kieServices.newKieFileSystem();
         SpreadsheetCompiler sc = new SpreadsheetCompiler();
-        String ruleAsset = sc.compile(uriExtDecisionTable.openConnection().getInputStream(), InputType.XLS);
-        //System.out.println(ruleAsset);
-        //Resource externalDecisionTable = kieServices.getResources().newByteArrayResource(ruleAsset.getBytes());
-        kfs.write("src/main/resources/test.drl", ruleAsset);
+//        System.out.println("File name: " + urlExtDecisionTable.getFile());
+        Resource externalDecisionTable = kieServices.getResources().newInputStreamResource(urlExtDecisionTable.openConnection().getInputStream());
+        kfs.write("src/main/resources/" + urlExtDecisionTable.getFile(), externalDecisionTable);
         KieBuilder kbuilder = kieServices.newKieBuilder(kfs);
         kbuilder.buildAll();
         KieRepository kieRepo = kieServices.getRepository();
