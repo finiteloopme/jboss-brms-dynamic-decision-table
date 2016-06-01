@@ -267,7 +267,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${version.surefire.plugin}</version>
                         <configuration>
-                            <skip>true</skip>
+                            <!-- <skip>true</skip> -->
                         </configuration>
                     </plugin>
                 </plugins>
