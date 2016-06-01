@@ -57,6 +57,7 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
+        <version.org.jboss.bom.brms>6.3.0.GA-redhat-3</version.org.jboss.bom.brms>
     </properties>
 
 
@@ -82,6 +83,13 @@
                 <artifactId>jboss-javaee-7.0-with-hibernate</artifactId>
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom.brms</groupId>
+                <artifactId>jboss-brms-bpmsuite-platform-bom</artifactId>
+                <type>pom</type>
+                <version>${version.org.jboss.bom.brms}</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
@@ -173,6 +181,29 @@
             <scope>provided</scope>
         </dependency>
 
+		<!-- Following dependencies required for testing decision tables -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-decisiontables</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!-- Needed for running tests (you may also use TestNG) -->
         <dependency>
             <groupId>junit</groupId>
@@ -298,4 +329,17 @@
         </profile>
 
     </profiles>
+    <repositories>
+        <!-- Bootstrap repository to locate the parent pom when the parent pom has not been build locally. -->
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss</url>
+        </repository>
+        <!-- Product repository with productized (not only) EAP artifacts -->
+        <repository>
+            <id>Red Hat Product Repository</id>
+            <url>https://maven.repository.redhat.com/techpreview/all/</url>
+        </repository>
+    </repositories>
 </project>
