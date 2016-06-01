@@ -9,6 +9,9 @@ Source files are located at <kbd>src/main/java</kbd>
 Test file is located at <kbd>src/test/java</kbd>
 
 The <kbd>setup</kbd> function in `DecisionTableTest.java` performs the task of dynamically loading decision table into a [knowledge session][d4e94e58].
+Test-cases are built using simple [JUnit][a7f152b6] framework.
+
+  [a7f152b6]: http://junit.org/junit4/ "JUnit testing framework"
 
 ## Prerequisites
 It is assumed that the reader has a working knowledge of the following:
