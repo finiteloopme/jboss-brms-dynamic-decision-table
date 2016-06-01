@@ -41,6 +41,8 @@ public class DecisionTableTest {
     private static final String GENDER_MALE = "MALE";
     private static final String GENDER_FEMALE = "FEMALE";
 
+    // TODO: use external decision table.
+    // URL to use: https://github.com/finiteloopme/jboss-brms-dynamic-decision-table/raw/ext-decision-table/insurance-rules.xls
     @BeforeClass
     public static void setup() {
         KieServices kieServices = KieServices.Factory.get();
