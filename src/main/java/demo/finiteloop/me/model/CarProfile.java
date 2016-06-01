@@ -7,10 +7,10 @@ public class CarProfile  implements java.io.Serializable {
 
 static final long serialVersionUID = 1L;
     
-//    @org.kie.api.definition.type.Position(value = 0)
+    @org.kie.api.definition.type.Position(value = 0)
     private java.lang.Boolean hasAlarm;
     
-//    @org.kie.api.definition.type.Position(value = 1)
+    @org.kie.api.definition.type.Position(value = 1)
     private java.lang.Boolean hasGarage;
 
     public CarProfile() {

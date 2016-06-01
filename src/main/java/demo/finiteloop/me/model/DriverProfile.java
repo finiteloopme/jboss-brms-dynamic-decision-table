@@ -7,19 +7,19 @@ public class DriverProfile  implements java.io.Serializable {
 
 static final long serialVersionUID = 1L;
     
-//    @org.kie.api.definition.type.Position(value = 1)
+    @org.kie.api.definition.type.Position(value = 1)
     private java.lang.Integer age;
     
-//    @org.kie.api.definition.type.Position(value = 3)
+    @org.kie.api.definition.type.Position(value = 3)
     private java.lang.String gender;
     
-//    @org.kie.api.definition.type.Position(value = 4)
+    @org.kie.api.definition.type.Position(value = 4)
     private java.lang.Boolean hasPreviousIncidents;
     
-//    @org.kie.api.definition.type.Position(value = 0)
+    @org.kie.api.definition.type.Position(value = 0)
     private java.lang.String name;
     
-//    @org.kie.api.definition.type.Position(value = 2)
+    @org.kie.api.definition.type.Position(value = 2)
     private java.lang.String state;
 
     public DriverProfile() {

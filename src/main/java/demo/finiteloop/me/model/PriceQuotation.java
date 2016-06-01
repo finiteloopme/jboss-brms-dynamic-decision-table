@@ -7,7 +7,7 @@ public class PriceQuotation  implements java.io.Serializable {
 
 static final long serialVersionUID = 1L;
     
-//    @org.kie.api.definition.type.Position(value = 0)
+    @org.kie.api.definition.type.Position(value = 0)
     private java.lang.Integer price;
 
     public PriceQuotation() {
